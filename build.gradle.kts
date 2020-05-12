@@ -12,7 +12,11 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    testCompile("junit", "junit", "4.12")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
 
 configure<JavaPluginConvention> {
