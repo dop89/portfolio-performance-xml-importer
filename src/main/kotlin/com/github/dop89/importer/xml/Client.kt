@@ -1,10 +1,7 @@
 package com.github.dop89.importer.xml
 
+import java.time.LocalDateTime
 import java.util.*
-
-data class PortfolioXml(
-    val client: Client
-)
 
 data class Client(
     val accounts: List<Account>,
@@ -21,7 +18,7 @@ data class Portfolio(
 )
 
 data class PortfolioTransaction(
-    //val date: String?,
+    val date: Date?,
     val currencyCode: String?,
     val amount: Long,
     val security: Security?,
@@ -29,7 +26,6 @@ data class PortfolioTransaction(
     val type: AccountTransactionType?,
     val crossEntry: CrossEntry?
 )
-
 
 data class Account(
     val uuid: UUID,
@@ -39,7 +35,7 @@ data class Account(
 )
 
 data class AccountTransaction(
-    //val date: String?,
+    val date: Date,
     val type: AccountTransactionType?,
     val currencyCode: String?,
     val amount: Long,
@@ -50,7 +46,7 @@ data class AccountTransaction(
 )
 
 data class Date(
-    val date: String?
+    val date: LocalDateTime?
 )
 
 data class Security(
