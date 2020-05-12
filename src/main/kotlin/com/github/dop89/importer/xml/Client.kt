@@ -11,7 +11,7 @@ data class Client(
 
 data class Portfolio(
     val uuid: UUID?,
-    val name: String?,
+    val name: String, // was optional
     val referenceAccount: Account?,
     val transactions: List<PortfolioTransaction> = emptyList(),
     val reference: String?
@@ -21,9 +21,9 @@ data class PortfolioTransaction(
     val date: Date?,
     val currencyCode: String?,
     val amount: Long,
-    val security: Security?,
-    val shares: Long?,
-    val type: AccountTransactionType?,
+    val security: Security, // was optional
+    val shares: Long, // was optional
+    val type: AccountTransactionType, // was optional
     val crossEntry: CrossEntry?
 )
 
@@ -51,7 +51,7 @@ data class Date(
 
 data class Security(
     val uuid: String?,
-    val name: String?,
+    val name: String, // was optional
     val currencyCode: String?,
     val isin: String?,
     val wkn: String?,

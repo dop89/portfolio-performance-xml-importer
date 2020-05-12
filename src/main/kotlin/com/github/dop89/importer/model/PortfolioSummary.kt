@@ -11,6 +11,5 @@ data class PortfolioPosition(
     val wkn: String?,
     val symbol: String?,
     val name: String,
-    val amount: BigDecimal,
-    val value: BigDecimal
+    val amount: BigDecimal
 )
