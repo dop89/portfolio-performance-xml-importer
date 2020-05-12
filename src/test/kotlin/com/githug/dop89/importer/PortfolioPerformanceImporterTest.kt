@@ -10,7 +10,8 @@ class PortfolioPerformanceImporterTest {
 
     @Test
     fun `should import a file`() {
-        val result = PortfolioPerformanceImporter().import()
+        val xmlFile = PortfolioPerformanceImporterTest::class.java.getResource("/kommer.xml").readText()
+        val result = PortfolioPerformanceImporter().import(xmlFile)
         assertEquals(emptyList<PortfolioPosition>(), result.items)
     }
 
