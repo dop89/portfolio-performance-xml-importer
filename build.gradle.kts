@@ -12,6 +12,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.0")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.11.+")
     testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
 }
 
