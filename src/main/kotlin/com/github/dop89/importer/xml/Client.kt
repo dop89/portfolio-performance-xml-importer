@@ -3,6 +3,7 @@ package com.github.dop89.importer.xml
 import java.time.LocalDateTime
 import java.util.*
 
+// TODO check which fields are optional and which are mandatory and change them here
 data class Client(
     val accounts: List<Account>,
     val portfolios: List<Portfolio>,
@@ -11,7 +12,7 @@ data class Client(
 
 data class Portfolio(
     val uuid: UUID?,
-    val name: String, // was optional
+    val name: String,
     val referenceAccount: Account?,
     val transactions: List<PortfolioTransaction> = emptyList(),
     val reference: String?
@@ -21,9 +22,9 @@ data class PortfolioTransaction(
     val date: Date?,
     val currencyCode: String?,
     val amount: Long,
-    val security: Security, // was optional
-    val shares: Long, // was optional
-    val type: AccountTransactionType, // was optional
+    val security: Security,
+    val shares: Long,
+    val type: AccountTransactionType,
     val crossEntry: CrossEntry?
 )
 
@@ -51,7 +52,7 @@ data class Date(
 
 data class Security(
     val uuid: String?,
-    val name: String, // was optional
+    val name: String,
     val currencyCode: String?,
     val isin: String?,
     val wkn: String?,

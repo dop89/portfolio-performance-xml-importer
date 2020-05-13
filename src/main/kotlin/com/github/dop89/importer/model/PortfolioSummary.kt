@@ -8,8 +8,8 @@ data class PortfolioSummary(
 
 data class PortfolioPosition(
     val isin: String?,
-    val wkn: String?,
-    val symbol: String?,
+    val wkn: String? = null,
+    val symbol: String? = null,
     val name: String,
-    val amount: BigDecimal
+    val shares: BigDecimal
 )
