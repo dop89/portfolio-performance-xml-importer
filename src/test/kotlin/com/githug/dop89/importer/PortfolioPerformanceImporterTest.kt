@@ -14,13 +14,13 @@ class PortfolioPerformanceImporterTest {
     @Test
     fun `should import the test file`() {
         val xmlFile = PortfolioPerformanceImporterTest::class.java.getResource("/kommer.xml").readText()
-        assertNotNull(PortfolioPerformanceImporter().import(xmlFile))
+        assertNotNull(PortfolioPerformanceImporter().importPortfolio(xmlFile))
     }
 
     @Test
     fun `should parse the test file and create portfolio summary`() {
         val xmlFile = PortfolioPerformanceImporterTest::class.java.getResource("/kommer.xml").readText()
-        val result = PortfolioPerformanceImporter().import(xmlFile).getPortfolioSummary()
+        val result = PortfolioPerformanceImporter().importPortfolio(xmlFile).getPortfolioSummary()
 
         assertEquals(
             PortfolioSummary(

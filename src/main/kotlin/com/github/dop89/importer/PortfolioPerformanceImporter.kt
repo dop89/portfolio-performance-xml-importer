@@ -7,7 +7,7 @@ import com.thoughtworks.xstream.XStream
 
 class PortfolioPerformanceImporter {
 
-    fun import(xmlFile: String): ImportedPortfolio {
+    fun importPortfolio(xmlFile: String): ImportedPortfolio {
         val xStream = XStream()
 
         xStream.registerConverter(DateConverter())
