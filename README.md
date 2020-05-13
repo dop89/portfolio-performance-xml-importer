@@ -12,10 +12,25 @@ For my own projects, I needed a library to get this data, so I wrote this small 
 
 
 ## Features
-Currently, its feature set is quite limited. You can only import an Portfolio Performance XML file and get a summary
-that aggregates all stocks over all portfolios together with name, isin, wkn and shares count. 
+Currently, its feature set is quite limited. You can only import a Portfolio Performance XML file and get a summary
+that aggregates all stocks over all portfolios together with name, isin, wkn and shares count. Serialized to JSON, 
+a portfolio summary would look like this:
 
-That feature was enough for me to release this first version. 
+```json
+{
+   "items":[
+      {
+         "isin":"DE0006289473",
+         "symbol":"EXHB.DE",
+         "wkn":"628947",
+         "name":"iShares eb.rexx Government Germany 1,5-2,5",
+         "shares":315.0
+      }
+   ]
+}
+```
+
+That feature was enough for me to release this first version. ;-)
 
 ## How to use?
 ### Dependency
