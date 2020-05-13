@@ -4,9 +4,6 @@ plugins {
     `maven-publish`
 }
 
-group = "com.github.dop89"
-version = "1.0-SNAPSHOT"
-
 repositories {
     mavenCentral()
 }
