@@ -7,7 +7,10 @@ import com.thoughtworks.xstream.XStream
 
 class PortfolioPerformanceImporter {
 
-    fun importPortfolio(xmlFile: String): ImportedPortfolio {
+    fun importPortfolio(xmlFile: String): ImportedPortfolio =
+        ImportedPortfolio(configureXStream().fromXML(xmlFile) as Client)
+
+    private fun configureXStream(): XStream {
         val xStream = XStream()
 
         xStream.registerConverter(DateConverter())
@@ -19,11 +22,11 @@ class PortfolioPerformanceImporter {
         xStream.alias("portfolio", Portfolio::class.java)
         xStream.alias("portfolio-transaction", PortfolioTransaction::class.java)
         xStream.alias("security", Security::class.java)
+        xStream.useAttributeFor(DateRef::class.java, "date")
 
         xStream.ignoreUnknownElements()
+        xStream.allowTypeHierarchy(Client::class.java)
 
-        val client = xStream.fromXML(xmlFile) as Client
-        return ImportedPortfolio(client)
+        return xStream
     }
-
 }

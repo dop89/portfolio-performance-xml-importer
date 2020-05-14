@@ -19,7 +19,7 @@ data class Portfolio(
 )
 
 data class PortfolioTransaction(
-    val date: Date?,
+    val date: DateRef?,
     val currencyCode: String?,
     val amount: Long,
     val security: Security,
@@ -36,7 +36,7 @@ data class Account(
 )
 
 data class AccountTransaction(
-    val date: Date,
+    val date: DateRef,
     val type: AccountTransactionType?,
     val currencyCode: String?,
     val amount: Long,
@@ -46,8 +46,9 @@ data class AccountTransaction(
     val note: String?
 )
 
-data class Date(
-    val date: LocalDateTime?
+data class DateRef(
+    val date: LocalDateTime?,
+    val value: Long?
 )
 
 data class Security(
