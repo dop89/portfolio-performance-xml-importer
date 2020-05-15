@@ -26,7 +26,16 @@ data class PortfolioTransaction(
     val shares: Long,
     val type: AccountTransactionType,
     val crossEntry: CrossEntry?
-)
+
+
+) {
+    /**
+     * Custom toString() method, because the deep structure with crossEntry leads to StackOverflowError when using toString()
+     */
+    override fun toString(): String {
+        return "PortfolioTransaction(date=$date, currencyCode=$currencyCode, amount=$amount, security=$security, shares=$shares, type=$type)"
+    }
+}
 
 data class Account(
     val uuid: UUID,
