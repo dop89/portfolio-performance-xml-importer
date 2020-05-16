@@ -1,6 +1,7 @@
 package com.github.dop89.importer.model
 
 import java.math.BigDecimal
+import java.time.LocalDate
 
 data class PortfolioSummary(
     val items: List<PortfolioPosition>
@@ -38,5 +39,15 @@ data class PortfolioPosition(
     /**
      * The total amount (total price) of this position. Not the current market value!
      */
-    val amount: BigDecimal
+    val amount: BigDecimal,
+
+    /**
+     * The latest price stored in the xml file
+     */
+    val latestPrice: LatestPrice?
+)
+
+data class LatestPrice(
+    val date: LocalDate?,
+    val value: BigDecimal?
 )

@@ -19,10 +19,19 @@ class PortfolioPerformanceImporter {
         xStream.alias("account-transaction", AccountTransaction::class.java)
         xStream.alias("buysell", BuySell::class.java)
         xStream.alias("client", Client::class.java)
+
         xStream.alias("portfolio", Portfolio::class.java)
         xStream.alias("portfolio-transaction", PortfolioTransaction::class.java)
         xStream.alias("security", Security::class.java)
-        xStream.useAttributeFor(DateRef::class.java, "date")
+
+        // TODO fix me -> deserializing of dates not possible
+        //xStream.useAttributeFor(DateRef::class.java, "date")
+
+        xStream.alias("price", SecurityPrice::class.java)
+        xStream.useAttributeFor(SecurityPrice::class.java, "date")
+        xStream.aliasField("t", SecurityPrice::class.java, "date")
+        xStream.useAttributeFor(SecurityPrice::class.java, "value")
+        xStream.aliasField("v", SecurityPrice::class.java, "value")
 
         xStream.ignoreUnknownElements()
         xStream.allowTypeHierarchy(Client::class.java)

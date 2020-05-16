@@ -1,5 +1,6 @@
 package com.github.dop89.importer.xml
 
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.util.*
 
@@ -16,7 +17,13 @@ data class Portfolio(
     val referenceAccount: Account?,
     val transactions: List<PortfolioTransaction> = emptyList(),
     val reference: String?
-)
+
+
+) {
+    override fun toString(): String {
+        return "Portfolio(uuid=$uuid, name='$name', referenceAccount=$referenceAccount, transactions=$transactions, reference=$reference)"
+    }
+}
 
 data class PortfolioTransaction(
     val date: DateRef?,
@@ -29,9 +36,6 @@ data class PortfolioTransaction(
 
 
 ) {
-    /**
-     * Custom toString() method, because the deep structure with crossEntry leads to StackOverflowError when using toString()
-     */
     override fun toString(): String {
         return "PortfolioTransaction(date=$date, currencyCode=$currencyCode, amount=$amount, security=$security, shares=$shares, type=$type)"
     }
@@ -42,7 +46,13 @@ data class Account(
     val name: String,
     val currencyCode: String?,
     val transactions: List<AccountTransaction> = emptyList()
-)
+
+
+) {
+    override fun toString(): String {
+        return "Account(uuid=$uuid, name='$name', currencyCode=$currencyCode, transactionsCount=${transactions.size})"
+    }
+}
 
 data class AccountTransaction(
     val date: DateRef,
@@ -53,7 +63,13 @@ data class AccountTransaction(
     val crossEntry: CrossEntry?,
     val shares: Long?,
     val note: String?
-)
+
+
+) {
+    override fun toString(): String {
+        return "AccountTransaction(date=$date, type=$type, currencyCode=$currencyCode, amount=$amount, security=$security, shares=$shares, note=$note)"
+    }
+}
 
 data class DateRef(
     val date: LocalDateTime?,
@@ -66,7 +82,13 @@ data class Security(
     val currencyCode: String?,
     val isin: String?,
     val wkn: String?,
-    val tickerSymbol: String?
+    val tickerSymbol: String?,
+    val prices: List<SecurityPrice> = emptyList()
+)
+
+data class SecurityPrice(
+    val date: LocalDate,
+    val value: Long
 )
 
 interface CrossEntry {
