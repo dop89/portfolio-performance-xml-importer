@@ -96,7 +96,7 @@ interface CrossEntry {
 }
 
 enum class AccountTransactionType {
-    BUY, DEPOSIT, DIVIDENDS, INTEREST, SELL
+    BUY, DEPOSIT, DIVIDENDS, FEES, FEES_REFUND, INTEREST, INTEREST_CHARGE, REMOVAL, SELL, TAXES, TAX_REFUND, TRANSFER_IN, TRANSFER_OUT
 }
 
 data class BuySell(
